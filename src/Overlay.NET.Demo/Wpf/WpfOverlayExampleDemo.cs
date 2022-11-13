@@ -36,7 +36,7 @@ namespace Overlay.NET.Demo.Wpf {
             Log.Debug("Note: If there is more than one process found, the first will be used.");
 
             // Set up objects/overlay
-            var processName = Console.ReadLine();
+            var processName = "EscapeFromTarkov";
             var process = System.Diagnostics.Process.GetProcessesByName(processName).FirstOrDefault();
             if (process == null) {
                 Log.Warn($"No process by the name of {processName} was found.");
@@ -88,11 +88,7 @@ namespace Overlay.NET.Demo.Wpf {
 
         private static void OnDraw(object sender, DrawingContext context) {
             // Draw a formatted text string into the DrawingContext.
-            context.DrawText(
-                new FormattedText("Click Me!", CultureInfo.GetCultureInfo("en-us"), FlowDirection.LeftToRight,
-                    new Typeface("Verdana"), 36, Brushes.BlueViolet), new Point(200, 116));
-
-            context.DrawLine(new Pen(Brushes.Blue, 10), new Point(100, 100), new Point(10, 10));
+            Log.Debug("OnDraw");
         }
     }
 }
